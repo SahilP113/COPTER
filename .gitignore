@@ -13,6 +13,7 @@ unpublished_code/
 PLM/best_models/
 PLM/datasets/
 PLM/logs/
+PLM/progen2-checkpoints
 
 *.sh
 *.pdf
