@@ -10,7 +10,7 @@ Proteins have different functions in different contexts. As a result, representa
 
 ### Therapeutic Target Prediction
 
-The data for training PINNACLE and running the therapeutic target prediction task can be found here: [Link text](https://figshare.com/articles/software/PINNACLE/22708126)
+The data for training PINNACLE and running the therapeutic target prediction task can be found here: [PINNACLE data](https://figshare.com/articles/software/PINNACLE/22708126) <br>
 Download all three zip files: networks.zip, pinnacle_embeds.zip, and therapeutic_target_task.zip
 
 
@@ -22,6 +22,18 @@ Run data_prep/tc_hard_data_processing.ipynb to obtain the data splits.
 The PanPep dataset used for the ET task is found here: [PanPep data](https://github.com/bm2-lab/PanPep/tree/main/Data) <br>
 Download majority_training_dataset.csv and majority_testing_dataset.csv. <br>
 Run data_prep/pan_prep_data_processing.ipynb to obtain the train, validation, and test splits. 
+
+
+### Genetic Perturbation Response Prediction
+
+Download Replogle K562 data: [K562_essential_raw_singlecell_01.h5ad](https://plus.figshare.com/ndownloader/files/35773219) <br>
+Download Replogle RPE1 data: [rpe1_raw_singlecell_01.h5ad](https://plus.figshare.com/ndownloader/files/35775606) <br>
+Run data_prep/replogle_data_process to process both the Replogle K562 and Replogle RPE1 data. 
+
+The Norman dataset is automatically downloaded as part of running data/norman_data_process.ipynb. <br>
+The data can also be downloaded here: [Norman data](https://dataverse.harvard.edu/api/access/datafile/6154020)
+
+
 
 
 ## Run Experiments
