@@ -1,12 +1,14 @@
-## Context-Aware Protein Representations Using Protein Language Models and Optimal Transport 
+# Context-Aware Protein Representations Using Protein Language Models and Optimal Transport 
 
 This repository contains implemention code for COPTER (Contextualized Protein Embeddings via Optimal Transport).
 
-# Overview
+## Overview
 
 Proteins have different functions in different contexts. As a result, representations that take into account a protein’s biological context would allow for a more accurate assessment of its functions and properties. Protein language models (PLMs) generate amino-acid-level (residue-level) embeddings of proteins and are a powerful approach for creating universal protein representations. However, PLMs on their own do not consider context and cannot generate context-specific protein representations. We introduce COPTER, a method that uses optimal transport to pool together a protein's PLM-generated residue-level embeddings using a separate context embedding to create context-aware protein representations. We conceptualize the residue-level embeddings as samples from a probabilistic distribution, and use sliced Wasserstein distances to map these samples against a context-specific reference set, yielding a contextualized protein-level embedding. We evaluate COPTER's performance on three downstream prediction tasks: therapeutic drug target prediction, genetic perturbation response prediction, and TCR-epitope binding prediction. Compared to state-of-the-art baselines, COPTER achieves substantially improved, near-perfect performance in predicting therapeutic targets across cell contexts. It also results in improved performance in predicting responses to genetic perturbations and binding between TCRs and epitopes.
 
-# Run Experiments
+## Run Experiments
+
+### Therapeutic Target Prediction
 
 Predicting therapeutic targets of rheumatoid arthritis (RA) with ESM-2 8M:
 ```bash
@@ -28,9 +30,67 @@ Predicting therapeutic targets of inflammatory bowel disease (IBD) with Progen2 
 python train_tt.py --task_name IBD_progen2 --tt_disease  EFO_0003767 --plm progen2_small --embeddings_dir data/therapeutic_target_data/pinnacle_embeds/ --hidden_dim_1 256 --hidden_dim_2 64 --batch_size 32 --num_seeds 1 --num_epoch 100
 ```
 
+### TCR-Epitope Binding Prediction
 
-# Therapeutic Target Prediction
 
-# TCR-Epitope Binding Prediction
+Predicting TCR-Epitope binding using random shuffling (RN) with ESM-2 8M:
+```bash
+python train_RN_NA.py --task_name RN_esm2 --tcr_epitope_task RN  --plm esm2_8m  --hidden_dim_1 128 --hidden_dim_2 32 --batch_size 64 --num_epoch 100
+```
 
-# Genetic Perturbation Response Prediction
+Predicting TCR-Epitope binding using random shuffling (RN) with Progen2 Small:
+```bash
+python train_RN_NA.py --task_name RN_progen2 --tcr_epitope_task RN --plm progen2_small --hidden_dim_1 256 --hidden_dim_2 64 --batch_size 64 --num_epoch 100
+```
+
+Predicting TCR-Epitope binding using experimental negatives (NA) with ESM-2 8M:
+```bash
+python train_RN_NA.py --task_name NA_esm2 --tcr_epitope_task NA --plm esm2_8m --hidden_dim_1 128 --hidden_dim_2 32 --batch_size 64 --num_epoch 100
+```
+
+Predicting TCR-Epitope binding using experimental negatives (NA) with Progen2 Small:
+```bash
+python train_RN_NA.py --task_name NA_progen2 --tcr_epitope_task NA --plm progen2_small --hidden_dim_1 256 --hidden_dim_2 64 --batch_size 64 --num_epoch 100
+```
+
+Predicting TCR-Epitope binding using external TCRs (ET) with ESM-2 8M:
+```bash
+python train_ET.py --task_name ET_esm2 --plm esm2_8m --hidden_dim_1 128 --hidden_dim_2 32 --batch_size 64 --num_epoch 100
+```
+
+Predicting TCR-Epitope binding using external TCRs (ET) with Progen2 Small:
+```bash
+python train_ET.py --task_name ET_progen2 --plm progen2_small --hidden_dim_1 256 --hidden_dim_2 64 --batch_size 64 --num_epoch 100
+```
+
+### Genetic Perturbation Response Prediction
+
+Predicting genetic perturbation response using Replogle RPE1 with ESM-2:
+```bash
+python train_perturb_replogle.py --task_name replogle_rpe1_esm2 --perturb_task replogle_rpe1  --plm esm2_8m --hidden_dim_1 1024 --hidden_dim_2 2048 --batch_size 32 --num_epoch 50
+```
+
+Predicting genetic perturbation response using Replogle RPE1 with Progen2:
+```bash
+python train_perturb_replogle.py --task_name replogle_rpe1_progen2 --perturb_task replogle_rpe1  --plm progen2_small --hidden_dim_1 1024 --hidden_dim_2 2048 --batch_size 32 --num_epoch 50
+```
+
+Predicting genetic perturbation response using Replogle K562 with ESM-2:
+```bash
+python train_perturb_replogle.py --task_name replogle_k562_esm2 --perturb_task replogle_k562  --plm esm2_8m --hidden_dim_1 1024 --hidden_dim_2 2048 --batch_size 32 --num_epoch 50
+```
+
+Predicting genetic perturbation response using Replogle K562 with Progen2:
+```bash
+python train_perturb_replogle.py --task_name replogle_k562_progen2 --perturb_task replogle_k562  --plm progen2_small --hidden_dim_1 1024 --hidden_dim_2 2048 --batch_size 32 --num_epoch 50
+```
+
+Predicting genetic perturbation response using Norman K562 with ESM-2:
+```bash
+python train_perturb_norman.py --task_name norman_esm2 --plm esm2_8m --hidden_dim_1 1024 --hidden_dim_2 2048 --batch_size 64 --num_epoch 50
+```
+
+Predicting genetic perturbation response using Norman K562 with Progen2:
+```bash
+python train_perturb_norman.py --task_name norman_progen2 --plm progen2_small --hidden_dim_1 1024 --hidden_dim_2 2048 --batch_size 64 --num_epoch 50
+```
