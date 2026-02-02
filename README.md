@@ -1,6 +1,6 @@
 # Context-Aware Protein Representations Using Protein Language Models and Optimal Transport 
 
-This repository contains implemention code for COPTER (Contextualized Protein Embeddings via Optimal Transport).
+This repository contains implemention code for the paper [Context-Aware Protein Representations Using Protein Language Models and Optimal Transport](https://doi.org/10.64898/2026.01.24.701517)
 
 ## Overview
 
