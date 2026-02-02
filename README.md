@@ -16,11 +16,11 @@ Download all three zip files: networks.zip, pinnacle_embeds.zip, and therapeutic
 
 ### TCR-Epitope Binding Prediction
 
-The tc-hard dataset used for the RN and NA tasks can be found here: [Link text](https://zenodo.org/records/6962043)
+The tc-hard dataset used for the RN and NA tasks can be found here: [tc-hard data](https://zenodo.org/records/6962043) <br>
 Run data_prep/tc_hard_data_processing.ipynb to obtain the data splits. 
 
-The PanPep dataset used for the ET task is found here: [Link test](https://github.com/bm2-lab/PanPep/tree/main/Data)
-Download majority_training_dataset.csv and majority_testing_dataset.csv. 
+The PanPep dataset used for the ET task is found here: [PanPep data](https://github.com/bm2-lab/PanPep/tree/main/Data) <br>
+Download majority_training_dataset.csv and majority_testing_dataset.csv. <br>
 Run data_prep/pan_prep_data_processing.ipynb to obtain the train, validation, and test splits. 
 
 
