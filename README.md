@@ -6,6 +6,8 @@ This repository contains implemention code for the paper [Context-Aware Protein 
 
 Proteins have different functions in different contexts. As a result, representations that take into account a protein’s biological context would allow for a more accurate assessment of its functions and properties. Protein language models (PLMs) generate amino-acid-level (residue-level) embeddings of proteins and are a powerful approach for creating universal protein representations. However, PLMs on their own do not consider context and cannot generate context-specific protein representations. We introduce COPTER, a method that uses optimal transport to pool together a protein's PLM-generated residue-level embeddings using a separate context embedding to create context-aware protein representations. We conceptualize the residue-level embeddings as samples from a probabilistic distribution, and use sliced Wasserstein distances to map these samples against a context-specific reference set, yielding a contextualized protein-level embedding. We evaluate COPTER's performance on three downstream prediction tasks: therapeutic drug target prediction, genetic perturbation response prediction, and TCR-epitope binding prediction. Compared to state-of-the-art baselines, COPTER achieves substantially improved, near-perfect performance in predicting therapeutic targets across cell contexts. It also results in improved performance in predicting responses to genetic perturbations and binding between TCRs and epitopes.
 
+![COPTER Overview](copter_overview.png)
+
 ## Downloaod Data
 
 ### Therapeutic Target Prediction
