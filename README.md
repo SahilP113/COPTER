@@ -6,6 +6,24 @@ This repository contains implemention code for COPTER (Contextualized Protein Em
 
 Proteins have different functions in different contexts. As a result, representations that take into account a protein’s biological context would allow for a more accurate assessment of its functions and properties. Protein language models (PLMs) generate amino-acid-level (residue-level) embeddings of proteins and are a powerful approach for creating universal protein representations. However, PLMs on their own do not consider context and cannot generate context-specific protein representations. We introduce COPTER, a method that uses optimal transport to pool together a protein's PLM-generated residue-level embeddings using a separate context embedding to create context-aware protein representations. We conceptualize the residue-level embeddings as samples from a probabilistic distribution, and use sliced Wasserstein distances to map these samples against a context-specific reference set, yielding a contextualized protein-level embedding. We evaluate COPTER's performance on three downstream prediction tasks: therapeutic drug target prediction, genetic perturbation response prediction, and TCR-epitope binding prediction. Compared to state-of-the-art baselines, COPTER achieves substantially improved, near-perfect performance in predicting therapeutic targets across cell contexts. It also results in improved performance in predicting responses to genetic perturbations and binding between TCRs and epitopes.
 
+## Downloaod Data
+
+### Therapeutic Target Prediction
+
+The data for training PINNACLE and running the therapeutic target prediction task can be found here: [Link text](https://figshare.com/articles/software/PINNACLE/22708126)
+Download all three zip files: networks.zip, pinnacle_embeds.zip, and therapeutic_target_task.zip
+
+
+### TCR-Epitope Binding Prediction
+
+The tc-hard dataset used for the RN and NA tasks can be found here: [Link text](https://zenodo.org/records/6962043)
+Run data_prep/tc_hard_data_processing.ipynb to obtain the data splits. 
+
+The PanPep dataset used for the ET task is found here: [Link test](https://github.com/bm2-lab/PanPep/tree/main/Data)
+Download majority_training_dataset.csv and majority_testing_dataset.csv. 
+Run data_prep/pan_prep_data_processing.ipynb to obtain the train, validation, and test splits. 
+
+
 ## Run Experiments
 
 ### Therapeutic Target Prediction
