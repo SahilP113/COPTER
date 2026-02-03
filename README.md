@@ -58,7 +58,30 @@ The data can also be downloaded here: [Norman data](https://dataverse.harvard.ed
 
 ## Obtain PLM Embeddings
 
-Before running SWE pooling, the protein language model embeddings must be obtained. 
+Before running SWE pooling, the protein language model embeddings must be obtained. Navigate into the PLM directory and activate the plm environment.
+```bash
+cd PLM
+conda activate plm
+```
+For each task, add the file of amino acid sequences to the PLM/datasets folder. Then run the following command depending on the choice of PLM. 
+
+### ESM-2 8M 
+```bash
+python run_dti.py --run-id dti_bindingdb_swepooling_100refpoints_freezeFalse_esm2_8m --config config/dti_bindingdb_esm2.yaml --pooling swe --num-ref-points 100 --freeze-swe False --target-model-type esm2_t6_8M_UR50D
+```
+### ESM-2 650M
+```bash
+python run_dti.py --run-id dti_bindingdb_swepooling_100refpoints_freezeFalse_esm2_650m --config config/dti_bindingdb_esm2.yaml --pooling swe --num-ref-points 100 --freeze-swe False --target-model-type esm2_t33_650M_UR50D
+```
+### Progen2 Small
+```bash
+python run_dti.py --run-id dti_bindingdb_swepooling_100refpoints_freezeFalse_progen2_small --config config/dti_bindingdb_progen2.yaml --pooling swe --num-ref-points 100 --freeze-swe False --target-model-type progen2-small
+```
+
+### Progen2 Large
+```bash
+python run_dti.py --run-id dti_bindingdb_swepooling_100refpoints_freezeFalse_progen2_large --config config/dti_bindingdb_progen2.yaml --pooling swe --num-ref-points 100 --freeze-swe False --target-model-type progen2-large
+```
 
 
 ## Run Experiments
