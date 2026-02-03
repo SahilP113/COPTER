@@ -35,6 +35,15 @@ conda activate copter
 
 The data for training PINNACLE and running the therapeutic target prediction task can be found here: [PINNACLE data](https://figshare.com/articles/software/PINNACLE/22708126) <br>
 Download all three zip files: networks.zip, pinnacle_embeds.zip, and therapeutic_target_task.zip
+Navigate into the pinnacle folder and activate the copter environment.
+```bash
+cd pinnacle
+conda activate copter
+```
+Then run the following command to train PINNACLE and obtain the cell context embeddings. 
+```bash
+python train.py --G_f ../raw_data/networks/global_ppi_edgelist.txt --ppi_dir ../raw_data/networks/ppi_edgelists/ --mg_f ../raw_data/networks/mg_edgelist.txt --save_prefix ../raw_data/pinnacle_embeds/ --epochs 100
+```
 
 
 ### TCR-Epitope Binding Prediction
@@ -85,6 +94,11 @@ python run_dti.py --run-id dti_bindingdb_swepooling_100refpoints_freezeFalse_pro
 
 
 ## Run Experiments
+
+For all tasks, use the copter conda environment.
+```bash
+conda activate copter
+```
 
 ### Therapeutic Target Prediction
 
