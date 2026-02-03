@@ -19,20 +19,20 @@ Download all three zip files: networks.zip, pinnacle_embeds.zip, and therapeutic
 ### TCR-Epitope Binding Prediction
 
 The tc-hard dataset used for the RN and NA tasks can be found here: [tc-hard data](https://zenodo.org/records/6962043) <br>
-Run data_prep/tc_hard_data_processing.ipynb to obtain the data splits. 
+Run **data_prep/tc_hard_data_processing.ipynb** to obtain the data splits. 
 
 The PanPep dataset used for the ET task is found here: [PanPep data](https://github.com/bm2-lab/PanPep/tree/main/Data) <br>
 Download majority_training_dataset.csv and majority_testing_dataset.csv. <br>
-Run data_prep/pan_prep_data_processing.ipynb to obtain the train, validation, and test splits. 
+Run **data_prep/pan_prep_data_processing.ipynb** to obtain the train, validation, and test splits. 
 
 
 ### Genetic Perturbation Response Prediction
 
 Download Replogle K562 data: [K562_essential_raw_singlecell_01.h5ad](https://plus.figshare.com/ndownloader/files/35773219) <br>
 Download Replogle RPE1 data: [rpe1_raw_singlecell_01.h5ad](https://plus.figshare.com/ndownloader/files/35775606) <br>
-Run data_prep/replogle_data_process to process both the Replogle K562 and Replogle RPE1 data. 
+Run **data_prep/replogle_data_process** to process both the Replogle K562 and Replogle RPE1 data. 
 
-The Norman dataset is automatically downloaded as part of running data/norman_data_process.ipynb. <br>
+Run **data/norman_data_process.ipynb** to both download and process the Norman K562 data. <br>
 The data can also be downloaded here: [Norman data](https://dataverse.harvard.edu/api/access/datafile/6154020)
 
 
@@ -125,4 +125,16 @@ python train_perturb_norman.py --task_name norman_esm2 --plm esm2_8m --hidden_di
 Predicting genetic perturbation response using Norman K562 with Progen2:
 ```bash
 python train_perturb_norman.py --task_name norman_progen2 --plm progen2_small --hidden_dim_1 1024 --hidden_dim_2 2048 --batch_size 64 --num_epoch 50
+```
+
+## Citation
+```bibtex
+@article {Patel2026.01.24.701517,
+	author = {Patel, Sahil and NaderiAlizadeh, Navid},
+	title = {Context-Aware Protein Representations Using Protein Language Models and Optimal Transport},
+	year = {2026},
+	doi = {10.64898/2026.01.24.701517},
+	publisher = {Cold Spring Harbor Laboratory},
+	journal = {bioRxiv}
+}
 ```
