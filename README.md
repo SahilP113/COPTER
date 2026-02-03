@@ -8,7 +8,28 @@ Proteins have different functions in different contexts. As a result, representa
 
 ![COPTER Overview](copter_overview.png)
 
-## Downloaod Data
+## Download Repo
+Clone the Github repository.
+```bash
+git clone https://github.com/SahilP113/COPTER
+cd COPTER
+```
+
+## Setup Environment
+
+Create a conda environment called plm to obtain the PLM embeddings. 
+```bash
+conda env create -f plm.yml
+conda activate plm
+```
+
+Create another conda environment called copter to run SWE pooling and the MLP. 
+```bash
+conda env create -f copter.yml
+conda activate copter
+```
+
+## Download Data
 
 ### Therapeutic Target Prediction
 
@@ -35,7 +56,9 @@ Run **data_prep/replogle_data_process** to process both the Replogle K562 and Re
 Run **data/norman_data_process.ipynb** to both download and process the Norman K562 data. <br>
 The data can also be downloaded here: [Norman data](https://dataverse.harvard.edu/api/access/datafile/6154020)
 
+## Obtain PLM Embeddings
 
+Before running SWE pooling, the protein language model embeddings must be obtained. 
 
 
 ## Run Experiments
